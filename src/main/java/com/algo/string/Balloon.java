@@ -66,9 +66,6 @@ public class Balloon {
                 pair[j] = i;
             }
         }
-        for(int i = 0 ; i < n; i++) {
-            System.out.println("pair["+i+"]"+pair[i]);
-        }
         StringBuilder sb = new StringBuilder();
         for (int i = 0, d = 1; i < n; i += d) {
             if (s.charAt(i) == '(' || s.charAt(i) == ')') {
