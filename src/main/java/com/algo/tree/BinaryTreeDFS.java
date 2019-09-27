@@ -95,8 +95,6 @@ public class BinaryTreeDFS {
         List<List<Integer>> zigzaggedNodes = new LinkedList<>();
         Queue<TreeNode> treeNodeQueue = new LinkedList<>();
         treeNodeQueue.add(root);
-        //this marks the end has been reached
-        treeNodeQueue.add(null);
         int level = 0;
 
         while(!treeNodeQueue.isEmpty()) {
