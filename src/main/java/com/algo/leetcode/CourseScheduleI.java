@@ -31,28 +31,37 @@ public class CourseScheduleI {
      * Explanation: There are a total of 2 courses to take.
      *              To take course 1 you should have finished course 0, and to take course 0 you should
      *              also have finished course 1. So it is impossible.
-     * @param numCourses
-     * @param prereq
+     * @param num
+     * @param preRequisites
      * @return
      */
-    public static boolean canFinish(int numCourses, int[][] prereq) {
-        List<Integer>[] adj = new List[numCourses];
-        int[] indegree = new int[numCourses];
-        for (int i = 0; i < numCourses; i++) adj[i] = new ArrayList<>();
-        for (int[] req : prereq) {
-            adj[req[1]].add(req[0]);
-            indegree[req[0]]++;
+    public static boolean canFinish(int num, int[][] preRequisites) {
+        List<Integer>[] adjList = new List[num];
+        int[] indegree = new int[num];
+
+        for (int i = 0; i < num; i++) {
+            adjList[i] = new ArrayList<>();
         }
-
+        for (int[] preRequisite : preRequisites) {
+            adjList[preRequisite[1]].add(preRequisite[0]);
+            indegree[preRequisite[0]]++;
+        }
         Queue<Integer> q = new LinkedList<>();
-        for (int i = 0; i < numCourses; i++)
-            if (indegree[i] == 0) q.offer(i);
-
-        int cnt = 0;
-        for (; !q.isEmpty(); cnt++)
-            for (int crs : adj[q.poll()])
-                if (--indegree[crs] == 0) q.offer(crs);
-        return cnt == numCourses;
+        for (int i = 0; i < num; i++) {
+            if (indegree[i] == 0) {
+                q.add(i);
+            }
+        }
+        int count = 0;
+        while (!q.isEmpty()) {
+            count++;
+            for (int course : adjList[q.poll()]) {
+                if (--indegree[course] == 0) {
+                    q.add(course);
+                }
+            }
+        }
+        return count == num;
     }
 
     public static void main(String[] args) {
