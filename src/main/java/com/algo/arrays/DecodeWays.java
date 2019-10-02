@@ -40,11 +40,6 @@ public class DecodeWays {
                 dp[i] += dp[i - 2];
             }
         }
-
-        for(int i = 0; i < dp.length; i++) {
-            System.out.print(dp[i]+" ");
-        }
-        System.out.println();
         return dp[len];
     }
 
