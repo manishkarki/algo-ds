@@ -129,7 +129,6 @@ public class PrefixMatch {
             for(int i = 0; i < n; i++) {
                 insert(arr[i]);
             }
-            return;
         }
     }
 
