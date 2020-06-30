@@ -14,8 +14,8 @@ public class DeleteNode {
         class Node {
             int data;
             Node next;
-            Node(int d)
-            {
+
+            Node(int d) {
                 data = d;
                 next = null;
             }
@@ -31,8 +31,7 @@ public class DeleteNode {
 
         // Function to delete the nth node from
         // the end of the given linked list
-        void deleteNode(int key)
-        {
+        void deleteNode(int key) {
 
             // First pointer will point to
             // the head of the linked list
@@ -69,16 +68,14 @@ public class DeleteNode {
         }
 
         // Function to insert a new Node at front of the list
-        public void push(int new_data)
-        {
+        public void push(int new_data) {
             Node new_node = new Node(new_data);
             new_node.next = head;
             head = new_node;
         }
 
         // Function to print the linked list
-        public void printList()
-        {
+        public void printList() {
             Node tnode = head;
             while (tnode != null) {
                 System.out.print(tnode.data + " ");
@@ -88,9 +85,9 @@ public class DeleteNode {
 
         public void removeDuplicates(Node root) {
             Node iter = root;
-            while(iter.next != null) {
+            while (iter.next != null) {
                 Node next = iter.next;
-                while(next.data == iter.data) {
+                while (next.data == iter.data) {
                     next = next.next;
                 }
                 iter.next = next;
@@ -99,9 +96,9 @@ public class DeleteNode {
         }
 
     }
+
     // Driver code
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         LinkedList llist = new DeleteNode().new LinkedList();
 
         llist.push(7);
