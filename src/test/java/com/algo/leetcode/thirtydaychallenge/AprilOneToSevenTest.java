@@ -3,6 +3,9 @@ package com.algo.leetcode.thirtydaychallenge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -46,5 +49,13 @@ class AprilOneToSevenTest {
     @Test
     public void testMaxSubArraySum() {
         assertEquals(6, aprilOneToSeven.maxSubArraySum(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+    }
+
+    @Test
+    public void testMoveZeroesToTheEnd() {
+        int[] actualArr = new int[]{1, 3, 0, 5, 8, 0, 10, 12};
+        int[] actualCopy = actualArr.clone();
+        aprilOneToSeven.moveZeroesToTheEnd(actualArr);
+        assertThat(actualArr, not(equalTo(actualCopy)));
     }
 }
