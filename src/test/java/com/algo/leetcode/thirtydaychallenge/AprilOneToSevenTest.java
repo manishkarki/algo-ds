@@ -26,4 +26,13 @@ class AprilOneToSevenTest {
         assertEquals(0, aprilOneToSeven.singleNumber(null));
     }
 
+    @Test
+    public void testIsHappy() {
+        assertEquals(true, aprilOneToSeven.isHappy(19));
+    }
+
+    @Test
+    public void testIsHappyNegative() {
+        assertEquals(false, aprilOneToSeven.isHappy(0));
+    }
 }
