@@ -1,6 +1,7 @@
 package com.algo.leetcode.thirtydaychallenge.april;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -178,21 +179,24 @@ public class AprilOneToSeven {
 
     /**
      * Given an array of strings, group anagrams together.
-     *
+     * <p>
      * Example:
-     *
+     * <p>
      * Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
      * Output:
      * [
-     *   ["ate","eat","tea"],
-     *   ["nat","tan"],
-     *   ["bat"]
+     * ["ate","eat","tea"],
+     * ["nat","tan"],
+     * ["bat"]
      * ]
      * Note:
-     *
+     * <p>
      * All inputs will be in lowercase.
      * The order of your output does not matter.
      */
+    public List<List<String>> groupAnagrams(String[] args) {
+
+    }
 
 
 }
