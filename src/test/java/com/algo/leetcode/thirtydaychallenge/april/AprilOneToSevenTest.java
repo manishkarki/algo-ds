@@ -4,8 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -57,5 +56,11 @@ class AprilOneToSevenTest {
         int[] actualCopy = actualArr.clone();
         aprilOneToSeven.moveZeroesToTheEnd(actualArr);
         assertThat(actualArr, not(equalTo(actualCopy)));
+    }
+
+    @Test
+    public void testMaxProfit() {
+        int[] costs = new int[]{7, 1, 5, 3, 6, 4};
+        assertThat(aprilOneToSeven.maxProfit(costs), is(equalTo(7)));
     }
 }
