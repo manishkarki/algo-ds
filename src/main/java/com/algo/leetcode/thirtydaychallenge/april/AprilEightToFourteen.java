@@ -44,4 +44,16 @@ public class AprilEightToFourteen {
         }
         return A[(count + 1) / 2];
     }
+
+    public ListNode middleNodeV2(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
 }

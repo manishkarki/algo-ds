@@ -26,6 +26,12 @@ class AprilEightToFourteenTest {
         assertThat(eightToFourteen.middleNode(input), is(constructLinkedList(4, 6)));
     }
 
+    @Test
+    public void testGetMiddleNodeV2() {
+        ListNode input = constructLinkedList(1, 6);
+        assertThat(eightToFourteen.middleNode(input), is(constructLinkedList(4, 6)));
+    }
+
     private ListNode constructLinkedList(int start, int end) {
         ListNode head = new ListNode(start);
         ListNode curr = head;
