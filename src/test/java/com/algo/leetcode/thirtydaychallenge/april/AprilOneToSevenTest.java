@@ -3,6 +3,9 @@ package com.algo.leetcode.thirtydaychallenge.april;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -62,5 +65,19 @@ class AprilOneToSevenTest {
     public void testMaxProfit() {
         int[] costs = new int[]{7, 1, 5, 3, 6, 4};
         assertThat(aprilOneToSeven.maxProfit(costs), is(equalTo(7)));
+    }
+
+    @Test
+    public void testGroupAnagrams() {
+        String[] input = new String[]{"aab", "aba", "baa", "abbccc"};
+        List<List<String>> expectedOutput = new LinkedList<>();
+        expectedOutput.add((List.of("aab", "aba", "baa")));
+        expectedOutput.add((List.of("abbccc")));
+
+        List<List<String>> actuals = aprilOneToSeven.groupAnagrams(input);
+        System.out.println(actuals + " is actuals");
+        System.out.println(expectedOutput + " is expected output");
+        assertThat(actuals.size(), is(expectedOutput.size()));
+        assertThat(actuals, is(expectedOutput));
     }
 }

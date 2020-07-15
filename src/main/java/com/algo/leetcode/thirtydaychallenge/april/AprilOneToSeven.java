@@ -1,8 +1,6 @@
 package com.algo.leetcode.thirtydaychallenge.april;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author mkarki
@@ -195,7 +193,32 @@ public class AprilOneToSeven {
      * The order of your output does not matter.
      */
     public List<List<String>> groupAnagrams(String[] args) {
+        if (args == null || args.length <= 0) {
+            return new ArrayList<>();
+        }
 
+        Map<String, List<String>> anagrams = new HashMap<>();
+        int[] charCount = new int[26];
+        for (String arg : args) {
+            for (char c : arg.toCharArray()) {
+                charCount[c - 'a']++;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 26; i++) {
+                sb.append(charCount[i]);
+            }
+            String key = sb.toString();
+            System.out.println("key:" + key);
+            if (!anagrams.containsKey(key)) {
+                anagrams.put(key, new ArrayList<>());
+            }
+            anagrams.get(key).add(arg);
+            System.out.println(anagrams);
+            Arrays.fill(charCount, 0);
+        }
+        System.out.println(anagrams.values());
+        return new LinkedList<>(anagrams.values());
     }
 
 
