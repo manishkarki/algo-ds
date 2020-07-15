@@ -36,13 +36,13 @@ public class AprilEightToFourteen {
      * The number of nodes in the given list will be between 1 and 100.
      */
     public ListNode middleNode(ListNode head) {
-        ListNode[] A = new ListNode[100];
+        ListNode[] listNodes = new ListNode[100];
         int count = 0;
-        while (head.next != null) {
-            A[count++] = head;
+        while (head != null) {
+            listNodes[count++] = head;
             head = head.next;
         }
-        return A[(count + 1) / 2];
+        return listNodes[count / 2];
     }
 
     public ListNode middleNodeV2(ListNode head) {
