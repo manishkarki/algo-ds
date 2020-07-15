@@ -3,26 +3,26 @@ package com.algo.list;
 /**
  * @author mkarki
  */
-public class ListNode {
-    static class Node {
+public class Node {
+    static class ListNode {
         int data;
-        Node next;
+        ListNode next;
 
         @Override
         public String toString() {
-            return "data:"+data;
+            return "data:" + data;
         }
     }
 
     // A utility function to create a new node
-    static Node newNode(int key) {
-        Node temp = new Node();
+    static ListNode newNode(int key) {
+        ListNode temp = new ListNode();
         temp.data = key;
         temp.next = null;
         return temp;
     }
 
-    static void printlist(Node node) {
+    static void printlist(ListNode node) {
         while (node != null) {
             System.out.print(node.data + "->");
             node = node.next;
