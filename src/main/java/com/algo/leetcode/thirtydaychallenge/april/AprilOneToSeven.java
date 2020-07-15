@@ -1,4 +1,4 @@
-package com.algo.leetcode.thirtydaychallenge;
+package com.algo.leetcode.thirtydaychallenge.april;
 
 import java.util.HashSet;
 import java.util.Set;
