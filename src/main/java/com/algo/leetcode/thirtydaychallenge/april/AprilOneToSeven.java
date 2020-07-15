@@ -209,15 +209,12 @@ public class AprilOneToSeven {
                 sb.append(charCount[i]);
             }
             String key = sb.toString();
-            System.out.println("key:" + key);
             if (!anagrams.containsKey(key)) {
                 anagrams.put(key, new ArrayList<>());
             }
             anagrams.get(key).add(arg);
-            System.out.println(anagrams);
             Arrays.fill(charCount, 0);
         }
-        System.out.println(anagrams.values());
         return new LinkedList<>(anagrams.values());
     }
 
