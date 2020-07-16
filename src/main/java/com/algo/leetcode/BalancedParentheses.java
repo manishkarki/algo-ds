@@ -46,6 +46,9 @@ public class BalancedParentheses {
      * @return if the string is valid or not
      */
     public boolean isValid(String s) {
+        if (s == null) {
+            return false;
+        }
         Stack<Character> openStack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (isOpen(c)) {

@@ -25,7 +25,17 @@ class BalancedParenthesesTest {
 
     @Test
     void testValidParenthesesWithNull() {
-        assertThat(balancedParentheses.isValid(null), is(true));
+        assertThat(balancedParentheses.isValid(null), is(false));
+    }
+
+    @Test
+    void testValidParentheses() {
+        assertThat(balancedParentheses.isValid("{([])}"), is(true));
+    }
+
+    @Test
+    void testValidParenthesesForWrongInput() {
+        assertThat(balancedParentheses.isValid("{]"), is(false));
     }
 
 }
