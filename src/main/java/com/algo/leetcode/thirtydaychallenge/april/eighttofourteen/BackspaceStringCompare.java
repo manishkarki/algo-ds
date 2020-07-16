@@ -42,11 +42,55 @@ public class BackspaceStringCompare {
      * <p>
      * Can you solve it in O(N) time and O(1) space?
      *
-     * @param s
-     * @param t
-     * @return
+     * @param S
+     * @param T
+     * @return if two strings after the manipulation are equal
      */
-    public boolean backspaceCompare(String s, String t) {
+    public boolean backspaceCompare(String S, String T) {
+        if (S == null || T == null) {
+            return false;
+        }
 
+        int sLen = S.length() - 1, tLen = T.length() - 1, skipS = 0, skipT = 0;
+
+        while (sLen >= 0 || tLen >= 0) {
+            while (sLen >= 0) {
+                if (S.charAt(sLen) == '#') {
+                    sLen--;
+                    skipS++;
+                } else if (skipS > 0) {
+                    skipS--;
+                    sLen--;
+                } else {
+                    break;
+                }
+            }
+
+            while (tLen >= 0) {
+                if (T.charAt(tLen) == '#') {
+                    tLen--;
+                    skipT++;
+                } else if (skipT > 0) {
+                    skipT--;
+                    tLen--;
+                } else {
+                    break;
+                }
+            }
+
+            if ((sLen >= 0 && tLen >= 0) && S.charAt(sLen) != T.charAt(tLen)) {
+                return false;
+            }
+
+            if ((sLen >= 0) != (tLen >= 0)) {
+                return false;
+            }
+            sLen--;
+            tLen--;
+        }
+
+        return true;
     }
+
+
 }
