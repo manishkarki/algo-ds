@@ -1,4 +1,4 @@
-package com.algo.leetcode.thirtydaychallenge.april;
+package com.algo.leetcode.thirtydaychallenge.april.onetoseven;
 
 import java.util.*;
 

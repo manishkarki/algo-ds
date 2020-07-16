@@ -1,5 +1,6 @@
-package com.algo.leetcode.thirtydaychallenge.april;
+package com.algo.leetcode.thirtydaychallenge.april.thirtydaychallenge;
 
+import com.algo.leetcode.thirtydaychallenge.april.onetoseven.AprilOneToSeven;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
