@@ -19,6 +19,19 @@ public class ProductOfArrayExceptSelf {
      * Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
      */
     public int[] getProductExceptSelf(int[] nums) {
+        int[] ans = new int[nums.length];
 
+        ans[0] = 1;
+        for (int i = 1; i < nums.length; i++) {
+            // ans[i - 1] already contains the product of elements to the left of 'i - 1'
+            ans[i] = nums[i - 1] * ans[i - 1];
+        }
+
+        ans[nums.length - 1] = 1;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            ans[i] = nums[i + 1] * ans[i + 1];
+        }
+
+        return ans;
     }
 }
