@@ -25,6 +25,9 @@ public class ContiguousArray {
      * @return
      */
     public int findMaxLength(int[] nums) {
+        if (nums == null || nums.length <= 0) {
+            throw new IllegalArgumentException("inputs cannot be null or empty");
+        }
         Map<Integer, Integer> sumIndexes = new HashMap<>();
         int maxlen = 0, sum = 0;
         // if sum = x at position i and has already been encountered say at position j,
