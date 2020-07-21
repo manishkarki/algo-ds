@@ -25,7 +25,7 @@ public class ContiguousArray {
      * @return
      */
     public int findMaxLength(int[] nums) {
-        Map<Integer, Integer> countIndexes = new HashMap<>();
+        Map<Integer, Integer> sumIndexes = new HashMap<>();
         int maxlen = 0, sum = 0;
         // if sum = x at position i and has already been encountered say at position j,
         //      it means subArray (i, j] has equal number of 0s and 1s i.e maxLen = i - indexThat has the same sum
@@ -35,10 +35,10 @@ public class ContiguousArray {
             if (sum == 0) {
                 maxlen = i + 1;
             }
-            if (countIndexes.containsKey(sum)) {
-                maxlen = Math.max(maxlen, i - countIndexes.get(sum));
+            if (sumIndexes.containsKey(sum)) {
+                maxlen = Math.max(maxlen, i - sumIndexes.get(sum));
             } else {
-                countIndexes.put(sum, i);
+                sumIndexes.put(sum, i);
             }
         }
         return maxlen;
