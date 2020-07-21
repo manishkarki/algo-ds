@@ -1,5 +1,7 @@
 package com.algo.leetcode.thirtydaychallenge.april.fifteentotwentyone;
 
+import java.util.stream.IntStream;
+
 /**
  * @author mkarki
  */
@@ -26,12 +28,19 @@ public class ProductOfArrayExceptSelf {
             // ans[i - 1] already contains the product of elements to the left of 'i - 1'
             ans[i] = nums[i - 1] * ans[i - 1];
         }
-
-        ans[nums.length - 1] = 1;
-        for (int i = nums.length - 2; i >= 0; i--) {
-            ans[i] = nums[i + 1] * ans[i + 1];
+        printArray(ans);
+        int R = 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            ans[i] *= R;
+            R *= nums[i];
         }
 
         return ans;
+    }
+
+    protected void printArray(int[] arr) {
+        IntStream.range(0, arr.length)
+                .forEach(i -> System.out.print(arr[i] + "\t"));
+        System.out.println();
     }
 }
