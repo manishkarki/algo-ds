@@ -28,6 +28,11 @@ public class ValidParenthesesString {
      * The string size will be in the range [1, 100].
      */
     public boolean checkValidString(String s) {
+
+        if (s == null) {
+            //log
+            return false;
+        }
         int leftBalance = 0;
         for (int i = 0; i < s.length(); i++) {
             if ((s.charAt(i) == '(') || (s.charAt(i) == '*'))
