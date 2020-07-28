@@ -28,7 +28,6 @@ public class ValidParenthesesString {
      * The string size will be in the range [1, 100].
      */
     public boolean checkValidString(String s) {
-
         if (s == null) {
             //log
             return false;
