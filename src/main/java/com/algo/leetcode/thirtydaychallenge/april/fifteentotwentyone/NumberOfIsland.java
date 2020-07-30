@@ -45,9 +45,11 @@ public class NumberOfIsland {
                 // if the island can be visited but hasn't been visited yet, do the visit in depth(DFS)
                 if (grid[i][j] == '1' && visited[i][j] != 1) {
                     dfs(grid, i, j, visited);
+                    islandCount++;
                 }
             }
         }
+        return islandCount;
     }
 
     private void dfs(char[][] grid, int i, int j, int[][] visited) {
