@@ -18,6 +18,12 @@ public class NumberOfIslandTest {
     }
 
     @Test
+    void testNumberOfIslandWithNullInput() {
+        assertThat(numberOfIsland.getIslandsNum(null), is(0));
+        assertThat(numberOfIsland.getIslandsNum(new char[][]{null}), is(0));
+    }
+
+    @Test
     void testNumberOfIsland() {
         assertThat(numberOfIsland.getIslandsNum(new char[][]{new char[]{'1', '1', '1', '1', '0'},
                 new char[]{'1', '1', '0', '1', '0'},
