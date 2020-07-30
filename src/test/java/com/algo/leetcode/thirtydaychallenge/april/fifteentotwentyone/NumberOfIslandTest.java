@@ -30,5 +30,9 @@ public class NumberOfIslandTest {
                 new char[]{'1', '1', '0', '1', '0'},
                 new char[]{'1', '1', '0', '0', '0'},
                 new char[]{'0', '0', '0', '0', '0'}}), is(1));
+        assertThat(numberOfIsland.getIslandsNum(new char[][]{new char[]{'1', '1', '0', '0', '0'},
+                new char[]{'1', '1', '0', '0', '0'},
+                new char[]{'0', '0', '1', '0', '0'},
+                new char[]{'0', '0', '0', '1', '1'}}), is(3));
     }
 }
