@@ -34,7 +34,7 @@ public class SubArraySum {
 
         int curr_sum = arr[0], start = 0, len = arr.length;
         for (int i = 1; i <= len; i++) {
-            while (curr_sum < sum && start < (i - 1)) {
+            while (curr_sum > sum && start < (i - 1)) {
                 curr_sum -= arr[start++];
             }
 
