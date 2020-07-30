@@ -20,6 +20,7 @@ public class NumberOfIslandTest {
     @Test
     void testNumberOfIslandWithNullInput() {
         assertThat(numberOfIsland.getIslandsNum(null), is(0));
+        assertThat(numberOfIsland.getIslandsNum(new char[][]{}), is(0));
         assertThat(numberOfIsland.getIslandsNum(new char[][]{null}), is(0));
     }
 
