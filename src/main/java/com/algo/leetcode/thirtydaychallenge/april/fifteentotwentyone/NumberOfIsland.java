@@ -67,6 +67,6 @@ public class NumberOfIsland {
 
     private boolean isSafe(char[][] grid, int i, int j, int[][] visited) {
         //check if the cell is land
-        return i >= 0 && i < grid.length && j >= 0 && j < grid[i].length && grid[i][j] == 1 && visited[i][j] != 1;
+        return i >= 0 && i < grid.length && j >= 0 && j < grid[i].length && grid[i][j] == '1' && visited[i][j] != 1;
     }
 }
