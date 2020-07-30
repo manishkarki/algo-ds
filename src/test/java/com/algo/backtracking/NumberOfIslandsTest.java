@@ -3,9 +3,12 @@ package com.algo.backtracking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author mkarki
@@ -20,12 +23,17 @@ class NumberOfIslandsTest {
 
     @Test
     void testGetNumberOfIslands() {
-        int M[][] = new int[][] { { 1, 1, 0, 0, 0 },
-                { 0, 1, 0, 0, 1 },
-                { 1, 0, 0, 1, 1 },
-                { 0, 0, 0, 0, 0 },
-                { 1, 0, 1, 0, 1 } };
+        int M[][] = new int[][]{{1, 1, 0, 0, 0},
+                {0, 1, 0, 0, 1},
+                {1, 0, 0, 1, 1},
+                {0, 0, 0, 0, 0},
+                {1, 0, 1, 0, 1}};
         assertEquals(6, numberOfIslands.getNumberOfIslands(M));
+        int M2[][] = new int[][]{{1, 1, 1, 1, 0},
+                {1, 1, 0, 1, 0},
+                {1, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0}};
+        assertThat(numberOfIslands.getNumberOfIslands(M2), is(1));
     }
 
     @Test
