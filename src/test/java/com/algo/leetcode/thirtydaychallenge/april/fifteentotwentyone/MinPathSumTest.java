@@ -18,6 +18,11 @@ class MinPathSumTest {
     }
 
     @Test
+    void testMinPathSumWhenInputIsNull() {
+        assertThat(minPathSum.minPathSum(null), is(0));
+    }
+
+    @Test
     void testMinPathSum() {
         int[][] grid = new int[][]{
                 new int[]{1, 3, 1},
