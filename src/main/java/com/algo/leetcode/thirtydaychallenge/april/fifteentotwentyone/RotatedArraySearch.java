@@ -44,9 +44,11 @@ public class RotatedArraySearch {
 
         // if first subArray is sorted
         if (nums[low] <= nums[mid]) {
+            //if pivot hasn't happened or our target lies in that subArray, just consider that
             if (target >= nums[low] && target <= nums[mid]) {
                 return search(nums, low, mid - 1, target);
             }
+            //else
             return search(nums, mid + 1, high, target);
         }
 
