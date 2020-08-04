@@ -18,7 +18,7 @@ class RotatedArraySearchTest {
     }
 
     @Test
-    void testSearch() {
+    void testSearchWithValidInput() {
         assertThat(rotatedArraySearch.search(new int[]{5, 6, 7, 1, 2, 3, 4}, 3), is(5));
         assertThat(rotatedArraySearch.search(new int[]{5, 6, 7, 1, 2, 3, 4}, 4), is(6));
         assertThat(rotatedArraySearch.search(new int[]{5, 6, 7, 1, 2, 3, 4}, 5), is(0));
