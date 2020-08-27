@@ -16,8 +16,6 @@ public class MinFlips {
      * @return
      */
     public int solution(int[] A) {
-        System.out.println(getNumberOfReverse(A, 0));
-        System.out.println(getNumberOfReverse(A, 1));
         return Math.min(getNumberOfReverse(A, 0), getNumberOfReverse(A, 1));
     }
 
@@ -31,6 +29,13 @@ public class MinFlips {
             target = (target == 0) ? 1 : 0;
         }
         return countFlip;
+    }
+
+    public static void main(String[] args) {
+        MinFlips minFlips = new MinFlips();
+        System.out.println(minFlips.solution(new int[]{1, 0, 1, 0, 1, 1}));
+        System.out.println(minFlips.solution(new int[]{1, 1, 0, 1, 1}));
+        System.out.println(minFlips.solution(new int[]{0, 1, 0}));
     }
 
 
