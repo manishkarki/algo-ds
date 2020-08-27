@@ -16,8 +16,6 @@ public class MinFlips {
      * @return
      */
     public int solution(int[] A) {
-        System.out.println("with target 0:" + getNumberOfReverse(A, 0));
-        System.out.println("with target 1:" + getNumberOfReverse(A, 1));
         return Math.min(getNumberOfReverse(A, 0), getNumberOfReverse(A, 1));
     }
 
