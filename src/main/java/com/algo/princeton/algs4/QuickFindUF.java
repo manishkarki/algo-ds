@@ -15,7 +15,7 @@ public class QuickFindUF {
         );
     }
 
-    public boolean isConnected(int p, int q) {
+    public boolean areConnected(int p, int q) {
         //
         return id[p] == id[q];
     }
