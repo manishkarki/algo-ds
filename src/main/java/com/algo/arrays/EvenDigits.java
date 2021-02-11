@@ -33,6 +33,20 @@ package com.algo.arrays;
 public class EvenDigits {
 
     public static int getEvenNumberOfDigits(int[] arr) {
+        int evenNumbers = 0;
 
+        for (int num : arr) {
+            int digitCount = 0;
+            while (num > 0) {
+                num /= 10;
+                digitCount++;
+            }
+
+            if (digitCount % 2 == 0) {
+                evenNumbers++;
+            }
+        }
+
+        return evenNumbers;
     }
 }
