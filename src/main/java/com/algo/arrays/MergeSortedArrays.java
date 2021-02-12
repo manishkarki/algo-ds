@@ -28,4 +28,26 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class MergeSortedArrays {
+    public static void mergeSortedArrays(int[] arr1, int m, int[] arr2, int n) {
+        int len = m + n - 1, index = 1, i = m - 1, j = n - 1;
+
+        while (i >= 0 && j >= 0) {
+            if (arr1[i] >= arr2[j]) {
+                arr1[len - index] = arr1[i--];
+            } else {
+                arr2[len - index] = arr2[j--];
+            }
+            index++;
+        }
+
+        while (i >= 0) {
+            arr1[len - index] = arr1[i--];
+            index++;
+        }
+
+        while (j >= 0) {
+            arr2[len - index] = arr2[j--];
+            index++;
+        }
+    }
 }
