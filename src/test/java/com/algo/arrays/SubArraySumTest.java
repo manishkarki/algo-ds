@@ -14,4 +14,9 @@ public class SubArraySumTest {
     void testSubArraySum() {
         assertThat(SubArraySum.subarraySum(new int[]{1, 2, 3}, 3), is(2));
     }
+
+    @Test
+    void testSubArraySumII() {
+        assertThat(SubArraySum.subArraySumII(new int[]{1, 2, 3}, 3), is(2));
+    }
 }
