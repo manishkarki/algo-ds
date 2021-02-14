@@ -1,7 +1,9 @@
 package com.algo.arrays;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Given an array arr of integers, check if there exists two integers N and M such that N is the double of M ( i.e. N = 2 * M).
@@ -10,7 +12,7 @@ import java.util.Map;
  * <p>
  * i != j
  * 0 <= i, j < arr.length
- * arr[i] == 2 * arr[j]
+ * num == 2 * arr[j]
  * <p>
  * <p>
  * Example 1:
@@ -33,7 +35,7 @@ import java.util.Map;
  * Constraints:
  * <p>
  * 2 <= arr.length <= 500
- * -10^3 <= arr[i] <= 10^3
+ * -10^3 <= num <= 10^3
  *
  * @author mkarki
  */
@@ -61,6 +63,15 @@ public class ArraySearch {
     }
 
     public static boolean checkIfExists(int[] arr) {
+        Set<Integer> count = new HashSet<>();
 
+        for (int i = 0; i < arr.length; i++) {
+            int num = arr[i];
+            if (count.contains(num * 2) || (num % 2 == 0 && count.contains(num / 2))) {
+                return true;
+            }
+            count.add(num);
+        }
+        return false;
     }
 }
