@@ -32,4 +32,21 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class ValidMountainArray {
+    public static boolean validMountainArray(int[] arr) {
+        int step = 0, len = arr.length;
+
+        while (step + 1 < len && arr[step] < arr[step + 1]) {
+            step++;
+        }
+        // make sure up to a certain point there's an increasing steps
+        if (step == 0 || step == len - 1) {
+            return false;
+        }
+
+        while (step + 1 < len && arr[step] > arr[step + 1]) {
+            step++;
+        }
+
+        return step == len - 1;
+    }
 }
