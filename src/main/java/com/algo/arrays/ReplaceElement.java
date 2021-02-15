@@ -34,6 +34,21 @@ package com.algo.arrays;
  */
 public class ReplaceElement {
 
+    public static int[] replaceElementsBruteForce(int[] arr) {
+        int[] retArray = new int[arr.length];
+        int index = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            int maxInRight = -1;
+            for (int j = i + 1; j < arr.length; j++) {
+                maxInRight = Math.max(maxInRight, arr[j]);
+            }
+            retArray[index++] = maxInRight;
+        }
+
+        return retArray;
+    }
+
     public static int[] replaceElements(int[] arr) {
         int maxInRight = -1;
 
