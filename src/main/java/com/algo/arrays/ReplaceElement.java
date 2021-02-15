@@ -39,7 +39,7 @@ public class ReplaceElement {
 
         for (int i = arr.length - 1; i >= 0; i--) {
             int temp = arr[i];
-            arr[i] = temp;
+            arr[i] = maxInRight;
             maxInRight = Math.max(maxInRight, temp);
         }
         return arr;
