@@ -13,6 +13,7 @@ class ReplaceElementTest {
     @Test
     void testReplaceElementsOnRight() {
         assertThat(ReplaceElement.replaceElements(new int[]{17, 18, 5, 4, 6, 1}), is(new int[]{18, 6, 6, 6, 1, -1}));
+        assertThat(ReplaceElement.replaceElements(new int[]{400}), is(new int[]{-1}));
     }
 
 }
