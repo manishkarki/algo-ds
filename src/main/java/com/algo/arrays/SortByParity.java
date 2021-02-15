@@ -23,7 +23,27 @@ package com.algo.arrays;
  */
 public class SortByParity {
 
-    public int[] sortArrayByParity(int[] A) {
+    public static int[] sortArrayByParity(int[] A) {
+        int i = 0, j = A.length - 1;
 
+        while (i < j) {
+            // check if the pointer at start points to an odd number
+            if (A[i] % 2 > A[j] % 2) {
+                int temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+
+            // increment start pointer if the number is even
+            if (A[i] % 2 == 0) {
+                i++;
+            }
+            // increment tail pointer if the number is odd
+            if (A[j] % 2 == 1) {
+                j--;
+            }
+        }
+
+        return A;
     }
 }
