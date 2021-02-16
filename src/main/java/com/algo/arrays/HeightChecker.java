@@ -1,5 +1,7 @@
 package com.algo.arrays;
 
+import java.util.Arrays;
+
 /**
  * Students are asked to stand in non-decreasing order of heights for an annual photo.
  * <p>
@@ -37,4 +39,17 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class HeightChecker {
+    public static int heightChecker(int[] heights) {
+        int[] clonedHeights = heights.clone();
+        Arrays.sort(clonedHeights);
+
+        int heightCheck = 0;
+        for (int i = 0; i < heights.length; i++) {
+            if (clonedHeights[i] != heights[i]) {
+                heightCheck++;
+            }
+        }
+
+        return heightCheck;
+    }
 }
