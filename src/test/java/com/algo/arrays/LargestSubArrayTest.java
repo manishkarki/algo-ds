@@ -14,6 +14,8 @@ class LargestSubArrayTest {
     void testMaxLenWithEqualZeroesAndOnes() {
         int arr[] = {1, 0, 0, 1, 0, 1, 1};
         assertThat(LargestSubArray.getMaxLenWithEqualNumberOfZeroesAndOnes(arr), is(6));
+        arr = new int[]{1, 1, 1, 1};
+        assertThat(LargestSubArray.getMaxLenWithEqualNumberOfZeroesAndOnes(arr), is(0));
     }
 
 }
