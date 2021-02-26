@@ -19,4 +19,11 @@ public class SubArraySumTest {
     void testSubArraySumII() {
         assertThat(SubArraySum.subArraySumII(new int[]{1, 2, 3}, 3), is(2));
     }
+
+    @Test
+    void testSubArraySumWithZero() {
+        assertThat(SubArraySum.subArrayWithZeroSumExists(new int[]{1, 2, 3}), is(false));
+        assertThat(SubArraySum.subArrayWithZeroSumExists(new int[]{0, 2, 3}), is(true));
+        assertThat(SubArraySum.subArrayWithZeroSumExists(new int[]{-3, 2, 3, 1, 6}), is(false));
+    }
 }
