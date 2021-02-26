@@ -54,7 +54,7 @@ class DisappearedNumberTest {
                     max_len = i - sumIndexes.get(sum);
                     ending_index = i;
                 }
-            } else // Else put this sum in hash table
+            } else // Else put this sum in map with sum as key and current index as i
                 sumIndexes.put(sum, i);
 
         }
