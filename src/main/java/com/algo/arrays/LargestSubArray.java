@@ -26,7 +26,7 @@ public class LargestSubArray {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (arr[i] == 0) ? -1 : 1;
         }
-        int sum = 0, maxLength = Integer.MIN_VALUE, endIndex = -1;
+        int sum = 0, maxLength = 0, endIndex = -1;
         Map<Integer, Integer> sumIndexes = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
