@@ -1,7 +1,9 @@
 package com.algo.arrays;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals to k.
@@ -56,5 +58,40 @@ public class SubArraySum {
             sumCount.put(sum, sumCount.getOrDefault(sum, 0) + 1);
         }
         return count;
+    }
+
+    /**
+     * Given an array of positive and negative numbers, find if there is a subarray (of size at-least one) with 0 sum.
+     * <p>
+     * Examples :
+     * <p>
+     * Input: {4, 2, -3, 1, 6}
+     * Output: true
+     * Explanation:
+     * There is a subarray with zero sum from index 1 to 3.
+     * <p>
+     * Input: {4, 2, 0, 1, 6}
+     * Output: true
+     * Explanation:
+     * There is a subarray with zero sum from index 2 to 2.
+     * <p>
+     * Input: {-3, 2, 3, 1, 6}
+     * Output: false
+     */
+    public static boolean subArrayWithZeroSumExists(int[] arr) {
+        int sum = 0;
+        Set<Integer> sums = new HashSet<>();
+
+        for (int num : arr) {
+            sum += num;
+
+            if (sum == 0 || num == 0 || sums.contains(sum)) {
+                return true;
+            }
+
+            sums.add(sum);
+        }
+
+        return false;
     }
 }
