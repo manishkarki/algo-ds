@@ -17,4 +17,25 @@ package com.algo.arrays;
  */
 public class EquilibriumIndex {
 
+    public static int getEquilibriumIndex(int[] arr) {
+        int sum = 0, leftSum = 0;
+
+        for (int i : arr) {
+            sum += i;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            // sum would be right sum
+            sum -= arr[i];
+
+            if (leftSum == sum) {
+                return i;
+            }
+            // update left sum for next iteration
+            leftSum += arr[i];
+        }
+
+        return -1;
+    }
+
 }
