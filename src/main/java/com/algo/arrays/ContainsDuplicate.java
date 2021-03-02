@@ -1,5 +1,8 @@
 package com.algo.arrays;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
  * <p>
@@ -19,4 +22,15 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class ContainsDuplicate {
+
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer, Integer> numberIndices = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (numberIndices.containsKey(nums[i]) && (i - numberIndices.get(nums[i])) <= k) {
+                return true;
+            }
+            numberIndices.put(nums[i], i);
+        }
+        return false;
+    }
 }
