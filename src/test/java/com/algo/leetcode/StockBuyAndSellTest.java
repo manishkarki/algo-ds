@@ -17,4 +17,12 @@ class StockBuyAndSellTest {
         prices = new int[]{7, 6, 4, 3, 1};
         assertThat(StockBuyAndSell.maxProfit(prices), is(0));
     }
+
+    @Test
+    void testGetMaxProfitFromStockBuySellII() {
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        assertThat(StockBuyAndSell.getMaxProfitFromStockBuySellII(prices), is(7));
+        prices = new int[]{7, 6, 4, 3, 1};
+        assertThat(StockBuyAndSell.getMaxProfitFromStockBuySellII(prices), is(0));
+    }
 }
