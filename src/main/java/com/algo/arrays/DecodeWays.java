@@ -15,28 +15,29 @@ public class DecodeWays {
      * For example,
      * Given encoded message "12", it could be decoded as "AB" (1 2) or "L" (12).
      * The number of ways decoding "12" is 2
+     *
      * @param s
      * @return
      */
     public int numberOfWaysToDecodeDP(String s) {
-        if(s == null || s.length() == 0) {
+        if (s == null || s.length() == 0) {
             return 0;
         }
 
         int len = s.length();
-        int [] dp = new int[len + 1];
+        int[] dp = new int[len + 1];
         dp[1] = s.charAt(0) != 0 ? 1 : 0;
         dp[0] = 1;
 
-        for(int i = 2; i <= len; i++) {
-            int oneChar = Integer.valueOf(s.substring(i-1, i));
-            int twoChar = Integer.valueOf(s.substring(i-2, i));
+        for (int i = 2; i <= len; i++) {
+            int oneChar = Integer.valueOf(s.substring(i - 1, i));
+            int twoChar = Integer.valueOf(s.substring(i - 2, i));
 
-            if(oneChar >= 1 && oneChar <=9) {
-                dp[i] += dp[i-1];
+            if (oneChar >= 1 && oneChar <= 9) {
+                dp[i] += dp[i - 1];
             }
 
-            if(twoChar >= 10 && twoChar <= 26) {
+            if (twoChar >= 10 && twoChar <= 26) {
                 dp[i] += dp[i - 2];
             }
         }
@@ -46,16 +47,16 @@ public class DecodeWays {
     public int waysToDecode(String s) {
         int first = 1, second = s.charAt(0) == '*' ? 9 : s.charAt(0) == '0' ? 0 : 1;
 
-        for(int i = 2; i <= s.length(); i++) {
+        for (int i = 2; i <= s.length(); i++) {
             int temp = second;
-            int firstChar = Integer.valueOf(s.substring(i-1, i));
-            int secondChar = Integer.valueOf(s.substring(i-2, i));
+            int firstChar = Integer.valueOf(s.substring(i - 1, i));
+            int secondChar = Integer.valueOf(s.substring(i - 2, i));
 
-            if(firstChar >= 1 && firstChar <=9) {
+            if (firstChar >= 1 && firstChar <= 9) {
                 second = second + first;
             }
 
-            if(secondChar >= 10 && secondChar <= 26) {
+            if (secondChar >= 10 && secondChar <= 26) {
                 second = first + second;
             }
             first = temp;
