@@ -2,7 +2,8 @@ package com.algo.leetcode;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 /**
  * @author mkarki
@@ -11,7 +12,7 @@ class StockBuyAndSellTest {
 
     @Test
     void testMaxProfit() {
-        int[] arr = new int[2];
-        System.out.println(arr[1]);
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        assertThat(StockBuyAndSell.maxProfit(prices), is(5));
     }
 }
