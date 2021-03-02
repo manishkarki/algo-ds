@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class ContainsDuplicate {
 
-    public boolean containsNearbyDuplicate(int[] nums, int k) {
+    public static boolean containsNearbyDuplicate(int[] nums, int k) {
         Map<Integer, Integer> numberIndices = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (numberIndices.containsKey(nums[i]) && (i - numberIndices.get(nums[i])) <= k) {
