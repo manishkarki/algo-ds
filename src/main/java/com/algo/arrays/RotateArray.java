@@ -35,4 +35,18 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class RotateArray {
+
+    public static void rotate(int[] nums, int k) {
+        int len = nums.length, previous, temp;
+        k %= len;
+        // [1,2,3,4,5,6,7], k = 3
+        for (int i = 0; i < k; i++) {
+            previous = nums[len - 1];
+            for (int j = 0; j < len; j++) {
+                temp = nums[j];
+                nums[j] = previous;
+                previous = temp;
+            }
+        }
+    }
 }
