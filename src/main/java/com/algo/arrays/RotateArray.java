@@ -36,6 +36,11 @@ package com.algo.arrays;
  */
 public class RotateArray {
 
+    /*
+            rotate all elements k times
+            time complexity O(n * k)
+            space complexity O(1)
+     */
     public static void rotate(int[] nums, int k) {
         int len = nums.length, previous, temp;
         k %= len;
