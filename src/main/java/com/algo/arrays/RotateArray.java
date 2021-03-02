@@ -59,6 +59,14 @@ public class RotateArray {
         using extra array, we can solve this in O(n)
      */
     public static void rotateArrayII(int[] nums, int k) {
+        int[] retArr = new int[nums.length];
 
+        for (int i = 0; i < nums.length; i++) {
+            retArr[(i + k) % nums.length] = nums[i];
+        }
+        // now copy over the array to original
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = retArr[i];
+        }
     }
 }
