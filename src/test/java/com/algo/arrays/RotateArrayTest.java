@@ -23,4 +23,11 @@ public class RotateArrayTest {
         RotateArray.rotateArrayII(nums, 3);
         assertThat(nums, is(new int[]{5, 6, 7, 1, 2, 3, 4}));
     }
+
+    @Test
+    void testRotateArrayIII() {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        RotateArray.rotateArrayIII(nums, 3);
+        assertThat(nums, is(new int[]{5, 6, 7, 1, 2, 3, 4}));
+    }
 }
