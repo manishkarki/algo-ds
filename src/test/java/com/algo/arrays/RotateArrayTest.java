@@ -13,7 +13,7 @@ public class RotateArrayTest {
     @Test
     void testRotateArray() {
         int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        RotateArray.rotate(nums, 3);
+        RotateArray.rotateArray(nums, 3);
         assertThat(nums, is(new int[]{5, 6, 7, 1, 2, 3, 4}));
     }
 }

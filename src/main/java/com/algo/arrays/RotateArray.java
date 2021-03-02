@@ -41,7 +41,7 @@ public class RotateArray {
             time complexity O(n * k)
             space complexity O(1)
      */
-    public static void rotate(int[] nums, int k) {
+    public static void rotateArray(int[] nums, int k) {
         int len = nums.length, previous, temp;
         k %= len;
         // [1,2,3,4,5,6,7], k = 3
@@ -53,5 +53,12 @@ public class RotateArray {
                 previous = temp;
             }
         }
+    }
+
+    /*
+        using extra array, we can solve this in O(n)
+     */
+    public static void rotateArrayII(int[] nums, int k) {
+
     }
 }
