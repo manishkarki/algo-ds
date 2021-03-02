@@ -1,5 +1,7 @@
 package com.algo.leetcode.thirtydaychallenge.april.onetoseven;
 
+import com.algo.leetcode.StockBuyAndSell;
+
 import java.util.*;
 
 /**
@@ -165,14 +167,7 @@ public class AprilOneToSeven {
      * 0 <= prices[i] <= 10 ^ 4
      */
     public int maxProfit(int[] prices) {
-        int maxProfit = 0;
-
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                maxProfit += prices[i] - prices[i - 1];
-            }
-        }
-        return maxProfit;
+        return StockBuyAndSell.getMaxProfitFromStockBuySellII(prices);
     }
 
     /**
