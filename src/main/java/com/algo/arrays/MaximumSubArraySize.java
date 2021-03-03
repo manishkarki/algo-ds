@@ -93,8 +93,7 @@ public class MaximumSubArraySize {
             while (sum > k) {
 
                 // Sliding window from right
-                sum -= arr[start];
-                start++;
+                sum -= arr[start++];
 
                 // Storing sub-array size - 1
                 // for which sum was greater than k
@@ -115,7 +114,7 @@ public class MaximumSubArraySize {
             }
         }
 
-        return ans - 1;
+        return ans;
     }
 
 
