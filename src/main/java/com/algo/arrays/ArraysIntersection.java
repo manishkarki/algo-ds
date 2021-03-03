@@ -1,6 +1,7 @@
 package com.algo.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,16 +30,18 @@ import java.util.List;
 public class ArraysIntersection {
 
     public static int[] intersect(int[] nums1, int[] nums2) {
-        List<Integer> nums = new ArrayList<>();
-
-        for (int num : nums1) {
-            nums.add(num);
-        }
-
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
         List<Integer> res = new ArrayList<>();
-        for (int i = 0; i < nums2.length; i++) {
-            if (nums.contains(nums2[i])) {
-                res.add(nums2[i]);
+        int i = 0, j = 0;
+
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] == nums2[j]) {
+                res.add(nums1[i]);
+            } else if (nums1[i] > nums2[j]) {
+                j++;
+            } else {
+                i++;
             }
         }
 
