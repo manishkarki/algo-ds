@@ -23,6 +23,6 @@ class MaximumSubArraySizeTest {
         assertThat(MaximumSubArraySize.subArrayMaxSize(arr, arr.length, 8), is(0));
 
         arr = new int[]{1, 2, 3, 4};
-//        assertThat(MaximumSubArraySize.subArrayMaxSize(arr, arr.length, 8), is(2));
+        assertThat(MaximumSubArraySize.subArrayMaxSize(arr, arr.length, 8), is(2));
     }
 }
