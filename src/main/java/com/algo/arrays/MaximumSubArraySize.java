@@ -79,4 +79,43 @@ public class MaximumSubArraySize {
         return binarySearch(prefixsum, n, k);
     }
 
+    public static int subArrayMaxSize(int arr[], int k, int n) {
+
+        int ans = n, sum = 0, start = 0;
+
+        // Loop till N
+        for (int end = 0; end < n; end++) {
+
+            // Sliding window from left
+            sum += arr[end];
+
+            while (sum > k) {
+
+                // Sliding window from right
+                sum -= arr[start];
+                start++;
+
+                // Storing sub-array size - 1
+                // for which sum was greater than k
+                ans = Math.min(ans, end - start + 1);
+
+                // Sum will be 0 if start>end
+                // because all elements are positive
+                // start>end only when arr[end]>k i.e,
+                // there is an array element with
+                // value greater than k, so sub-array
+                // sum cannot be less than k.
+                if (sum == 0)
+                    break;
+            }
+
+            if (sum == 0) {
+                break;
+            }
+        }
+
+        return ans - 1;
+    }
+
+
 }
