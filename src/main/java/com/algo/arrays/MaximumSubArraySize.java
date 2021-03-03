@@ -28,7 +28,8 @@ import java.util.Arrays;
  * @author mkarki
  */
 public class MaximumSubArraySize {
-    static int binarySearch(int prefixSum[], int n, int k) {
+
+    private static int binarySearch(int prefixSum[], int n, int k) {
         // Initialize result
         int ans = -1;
 
@@ -66,7 +67,7 @@ public class MaximumSubArraySize {
     // Return the maximum subarray size, such
     // that all subarray of that size have
     // sum less than K.
-    static int maxSize(int arr[], int n, int k) {
+    public static int maxSize(int arr[], int n, int k) {
 
         // Initialize prefix sum array as 0.
         int prefixsum[] = new int[n + 1];
@@ -79,7 +80,7 @@ public class MaximumSubArraySize {
         return binarySearch(prefixsum, n, k);
     }
 
-    public static int subArrayMaxSize(int arr[], int k, int n) {
+    public static int subArrayMaxSize(int arr[], int n, int k) {
 
         int ans = n, sum = 0, start = 0;
 
