@@ -1,5 +1,7 @@
 package com.algo.arrays;
 
+import java.util.Arrays;
+
 /**
  * Given a non-empty array of decimal digits representing a non-negative integer, increment one to the integer.
  * <p>
@@ -40,6 +42,10 @@ public class PlusOne {
                 return arr;
             }
         }
+        Arrays.stream(arr)
+                .boxed()
+                .mapToInt(Integer::intValue)
+                .forEach(i -> System.out.print(i + " "));
         // we'll only come here if the number represented by array were all 9s
         arr = new int[arr.length + 1];
         arr[0] = 1;
