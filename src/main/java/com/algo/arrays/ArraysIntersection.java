@@ -1,5 +1,8 @@
 package com.algo.arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Given two arrays, write a function to compute their intersection.
  * <p>
@@ -24,4 +27,29 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class ArraysIntersection {
+
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> nums = new ArrayList<>();
+
+        for (int num : nums1) {
+            nums.add(num);
+        }
+
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < nums2.length; i++) {
+            if (nums.contains(nums2[i])) {
+                res.add(nums2[i]);
+            }
+        }
+
+        return res.stream()
+                .mapToInt(Integer::intValue).toArray();
+
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {4, 9, 5};
+        int[] arr2 = {9, 4, 9, 8, 4};
+        System.out.println(intersect(arr1, arr2));
+    }
 }
