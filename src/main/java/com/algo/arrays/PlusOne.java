@@ -27,4 +27,22 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class PlusOne {
+
+    public static int[] plusOne(int[] arr) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            // set all the 9s at the end of the array to 0
+            if (arr[i] == 9) {
+                arr[i] = 0;
+            }
+            // right most digit is a non 9, so increase and then return the array
+            else {
+                arr[i]++;
+                return arr;
+            }
+        }
+        // we'll only come here if the number represented by array were all 9s
+        arr = new int[arr.length + 1];
+        arr[0] = 1;
+        return arr;
+    }
 }
