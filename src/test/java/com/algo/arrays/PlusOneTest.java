@@ -14,5 +14,7 @@ class PlusOneTest {
     void testPlusOne() {
         int[] numbers = {1, 2, 9};
         assertThat(PlusOne.plusOne(numbers), is(new int[]{1, 3, 0}));
+        numbers = new int[]{9, 9, 9, 9};
+        assertThat(PlusOne.plusOne(numbers), is(new int[]{1, 0, 0, 0, 0}));
     }
 }
