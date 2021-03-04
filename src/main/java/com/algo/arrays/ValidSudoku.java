@@ -1,5 +1,8 @@
 package com.algo.arrays;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
  * <p>
@@ -44,4 +47,34 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class ValidSudoku {
+
+    public static boolean isValidSudoku(char[][] board) {
+        //we have to check in every row, col and boxes, all should be of total 9
+        Set<Integer>[] rows = new HashSet[9];
+        Set<Integer>[] cols = new HashSet[9];
+        Set<Integer>[] boxes = new HashSet[9];
+
+        for (int i = 0; i < 9; i++) {
+            rows[i] = new HashSet<>();
+            cols[i] = new HashSet<>();
+            boxes[i] = new HashSet<>();
+        }
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.') {
+                    int cell = board[i][j];
+                    int boxIndex = (i / 3) * 3 + j / 3;
+
+                    if (rows[i].contains(cell) || cols[j].contains(cell) || boxes[boxIndex].contains(cell)) {
+                        return false;
+                    }
+                    rows[i].add(cell);
+                    cols[j].add(cell);
+                    boxes[boxIndex].add(cell);
+                }
+            }
+        }
+        return true;
+    }
 }
