@@ -51,12 +51,38 @@ public class SubArraySum {
         sumCount.put(0, 1);
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
+            if (sum == k) {
+                count++;
+            }
 
             if (sumCount.containsKey(sum - k)) {
                 count += sumCount.get(sum - k);
             }
             sumCount.put(sum, sumCount.getOrDefault(sum, 0) + 1);
         }
+        return count;
+    }
+
+    public static int subArraySumIII(int[] nums, int k) {
+        Map<Integer, Integer> prevSum = new HashMap<>();
+        int count = 0, sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            // Add current element to sum so far.
+            sum += nums[i];
+            // If currsum is equal to desired sum,
+            // then a new subarray is found. So
+            // increase count of subarrays.
+            if (sum == k) {
+                count++;
+            }
+
+            if (prevSum.containsKey(sum - k)) {
+                count += prevSum.get(sum - k);
+            }
+
+            prevSum.put(sum, prevSum.getOrDefault(sum, 0) + 1);
+        }
+
         return count;
     }
 
