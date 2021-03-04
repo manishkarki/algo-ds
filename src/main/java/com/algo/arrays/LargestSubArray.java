@@ -1,5 +1,6 @@
 package com.algo.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,4 +61,63 @@ public class LargestSubArray {
 
         return maxLength;
     }
+
+    /**
+     * Given an array of alphanumeric characters. The task is to find the longest contiguous sub-array which has
+     * equal numbers of letters (alphabets) and numbers (numeric digits). Print the starting and ending index of
+     * this sub-array. If there are multiple results, output the one with the lowest starting index.
+     * <p>
+     * Examples:
+     * <p>
+     * Input: arr[] = {‘A’, ‘B’, ‘X’, ‘4’, ‘6’, ‘X’, ‘a’}
+     * Output: 1 4
+     * The required sub-array is {‘B’, ‘X’, ‘4’, ‘6’}.
+     * {‘X’, ‘4’, ‘6’, ‘X’} is also a valid sub-array of maximum
+     * length but its starting index is not minimum.
+     * <p>
+     * Input: arr[] = {‘1’, ‘2’, ‘a’, ‘b’, ‘c’, ‘1’, ‘n’, ‘c’, ‘1’, ‘2’}
+     * Output: 0 9
+     */
+    public static SubArrayResponse getLargestSubArrayWithEqualAlphabetsAndNumbers(int[] arr) {
+        int maxSize = -1, sum, start = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Character.isAlphabetic(arr[i]) ? -1 : 1;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            sum = arr[i];
+
+            for (int j = i + 1; j < arr.length; j++) {
+                sum += arr[j];
+
+                if (sum == 0 && maxSize < (j - i + 1)) {
+                    maxSize = j - i + 1;
+                    start = i;
+                }
+            }
+        }
+
+        return new SubArrayResponse(maxSize, new int[]{start, start + maxSize - 1});
+    }
+
+    static class SubArrayResponse {
+        int maxSize;
+        int[] indices;
+
+        public SubArrayResponse(int maxSize, int[] indices) {
+            this.maxSize = maxSize;
+            this.indices = indices;
+        }
+
+        @Override
+        public String toString() {
+            return "SubArrayResponse{" +
+                    "maxSize=" + maxSize +
+                    ", indices=" + Arrays.toString(indices) +
+                    '}';
+        }
+    }
+
+
 }
