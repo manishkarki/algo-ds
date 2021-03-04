@@ -2,8 +2,7 @@ package com.algo.arrays;
 
 import org.junit.jupiter.api.Test;
 
-import static com.algo.arrays.LargestSubArray.getLargestSubArrayWithEqualAlphabetsAndNumbers;
-import static com.algo.arrays.LargestSubArray.getLargestSubArrayWithEqualAlphabetsAndNumbersII;
+import static com.algo.arrays.LargestSubArray.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -15,11 +14,17 @@ class LargestSubArrayTest {
     @Test
     void testMaxLenWithEqualZeroesAndOnes() {
         int[] arr = {1, 0, 0, 1, 0, 1, 1};
-        assertThat(LargestSubArray.getMaxLenWithEqualNumberOfZeroesAndOnes(arr), is(6));
+        LargestSubArray.SubArrayResponse response = getMaxLenWithEqualNumberOfZeroesAndOnes(arr);
+        assertThat(response.maxSize, is(6));
+        assertThat(response.indices, is(new int[]{0, 5}));
         arr = new int[]{1, 1, 1, 1};
-        assertThat(LargestSubArray.getMaxLenWithEqualNumberOfZeroesAndOnes(arr), is(0));
+        response = getMaxLenWithEqualNumberOfZeroesAndOnes(arr);
+        assertThat(response.maxSize, is(0));
+        assertThat(response.indices, is(new int[]{0, -1}));
         arr = new int[]{0, 0, 1, 1, 0};
-        assertThat(LargestSubArray.getMaxLenWithEqualNumberOfZeroesAndOnes(arr), is(4));
+        response = getMaxLenWithEqualNumberOfZeroesAndOnes(arr);
+        assertThat(response.maxSize, is(4));
+        assertThat(response.indices, is(new int[]{0, 3}));
     }
 
     @Test
