@@ -22,15 +22,11 @@ import java.util.Map;
  */
 public class LargestSubArray {
 
-    public static int getMaxLenWithEqualNumberOfZeroesAndOnes(int[] arr) {
-        // if o is found , put -1 else 1
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (arr[i] == 0) ? -1 : 1;
-        }
+    public static SubArrayResponse getMaxLenWithEqualNumberOfZeroesAndOnes(int[] arr) {
         int sum = 0, maxLength = 0, endIndex = -1;
         Map<Integer, Integer> sumIndexes = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+            sum += (arr[i] == 0) ? -1 : 1;
 
             // To handle sum=0 at last index
             if (sum == 0) {
@@ -59,7 +55,7 @@ public class LargestSubArray {
 
         System.out.println("max sub array found between index:" + startIndex + " and end:" + endIndex);
 
-        return maxLength;
+        return new SubArrayResponse(maxLength, new int[]{startIndex, endIndex});
     }
 
     /**
@@ -105,9 +101,14 @@ public class LargestSubArray {
         int end = 0, sum = 0, maxSize = 0;
 
         Map<Integer, Integer> hash = new HashMap<>();
-        hash.put(0, -1);
+//        hash.put(0, -1);
         for (int i = 0; i < arr.length; i++) {
             sum += (Character.isAlphabetic(arr[i])) ? -1 : 1;
+            // if we don't want to initialize the map with 0 sum, this is an alternate
+            if (sum == 0) {
+                maxSize = i + 1;
+                end = i;
+            }
             if (hash.containsKey(sum) && (i - hash.get(sum)) > maxSize) {
                 maxSize = i - hash.get(sum);
                 end = i;
