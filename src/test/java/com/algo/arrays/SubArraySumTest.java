@@ -24,6 +24,14 @@ public class SubArraySumTest {
     }
 
     @Test
+    void testSubArraySumIII() {
+        assertThat(SubArraySum.subArraySumIII(new int[]{1, 2, 3}, 3), is(2));
+        assertThat(SubArraySum.subArraySumIII(new int[]{1, 1, 1}, 3), is(1));
+        assertThat(SubArraySum.subArraySumIII(new int[]{3, 2, 7, -1, 6}, 5), is(2));
+        assertThat(SubArraySum.subArraySumIII(new int[]{10, 2, -2, -20, 10}, -10), is(3));
+    }
+
+    @Test
     void testSubArraySumWithZero() {
         assertThat(SubArraySum.subArrayWithZeroSumExists(new int[]{1, 2, 3}), is(false));
         assertThat(SubArraySum.subArrayWithZeroSumExists(new int[]{0, 2, 3}), is(true));
