@@ -51,9 +51,6 @@ public class SubArraySum {
         sumCount.put(0, 1);
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-            if (sum == k) {
-                count++;
-            }
 
             if (sumCount.containsKey(sum - k)) {
                 count += sumCount.get(sum - k);
