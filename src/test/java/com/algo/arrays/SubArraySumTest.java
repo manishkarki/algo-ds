@@ -20,6 +20,7 @@ public class SubArraySumTest {
         assertThat(SubArraySum.subArraySumII(new int[]{1, 2, 3}, 3), is(2));
         assertThat(SubArraySum.subArraySumII(new int[]{1, 1, 1}, 3), is(1));
         assertThat(SubArraySum.subArraySumII(new int[]{3, 2, 7, -1, 6}, 5), is(2));
+        assertThat(SubArraySum.subArraySumII(new int[]{10, 2, -2, -20, 10}, -10), is(3));
     }
 
     @Test
