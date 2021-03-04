@@ -1,6 +1,5 @@
 package com.algo.arrays;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.algo.arrays.LargestSubArray.getLargestSubArrayWithEqualAlphabetsAndNumbers;
@@ -14,7 +13,6 @@ import static org.hamcrest.Matchers.is;
 class LargestSubArrayTest {
 
     @Test
-    @Disabled
     void testMaxLenWithEqualZeroesAndOnes() {
         int arr[] = {1, 0, 0, 1, 0, 1, 1};
         assertThat(LargestSubArray.getMaxLenWithEqualNumberOfZeroesAndOnes(arr), is(6));
