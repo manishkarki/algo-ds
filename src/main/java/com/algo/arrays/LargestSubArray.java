@@ -101,6 +101,24 @@ public class LargestSubArray {
         return new SubArrayResponse(maxSize, new int[]{start, start + maxSize - 1});
     }
 
+    public static SubArrayResponse getLargestSubArrayWithEqualAlphabetsAndNumbersII(int[] arr) {
+        int end = 0, sum = 0, maxSize = 0;
+
+        Map<Integer, Integer> hash = new HashMap<>();
+        hash.put(0, -1);
+        for (int i = 0; i < arr.length; i++) {
+            sum += (Character.isAlphabetic(arr[i])) ? -1 : 1;
+            if (hash.containsKey(sum) && (i - hash.get(sum)) > maxSize) {
+                maxSize = i - hash.get(sum);
+                end = i;
+            } else {
+                hash.put(sum, i);
+            }
+        }
+
+        return new SubArrayResponse(maxSize, new int[]{end - maxSize + 1, end});
+    }
+
     static class SubArrayResponse {
         int maxSize;
         int[] indices;
