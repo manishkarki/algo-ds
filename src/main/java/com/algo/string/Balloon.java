@@ -57,6 +57,7 @@ public class Balloon {
         Stack<String> stack = new Stack();
         StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
+            // when '(' is found, push string upto now, instantiate the builder again
             if (c == '(') {
                 stack.push(sb.toString());
                 sb = new StringBuilder();
@@ -70,6 +71,21 @@ public class Balloon {
 
         return sb.toString();
 
+    }
+
+    /*
+        helper to reverse a char array in-space
+     */
+    private static void reverseString(char[] chars) {
+        int i = 0, j = chars.length - 1;
+
+        while (i < j) {
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            i++;
+            j--;
+        }
     }
 
 }
