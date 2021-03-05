@@ -37,7 +37,7 @@ public class Balloon {
      * 1 <= text.length <= 10^4
      * text consists of lower case English letters only.
      */
-    public int maxNumberOfBalloons(String text) {
+    public static int maxNumberOfBalloons(String text) {
         int[] chars = new int[26]; //count all letters
         for (char c : text.toCharArray()) {
             chars[c - 'a']++;
