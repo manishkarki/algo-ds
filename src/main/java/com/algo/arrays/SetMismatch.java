@@ -22,11 +22,11 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class SetMismatch {
-    public int[] findErrorNums(int[] nums) {
+    public static int[] findErrorNums(int[] nums) {
         int[] ret = new int[2];
 
         for (int num : nums) {
-            if (nums[Math.abs(num) - 1] > 0) {
+            if (nums[Math.abs(num) - 1] < 0) {
                 ret[0] = Math.abs(num);
             } else {
                 nums[Math.abs(num) - 1] *= -1;
