@@ -40,4 +40,25 @@ public class IncreasingBST {
             this.right = right;
         }
     }
+
+    private TreeNode curr;
+
+    public TreeNode increasingBST(TreeNode root) {
+        curr = new TreeNode(0);
+        TreeNode ans = curr;
+        inOrder(root);
+        return ans.right;
+    }
+
+    private void inOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        root.left = null;
+        curr.right = root;
+        curr = root;
+        inOrder(root.right);
+    }
+
 }
