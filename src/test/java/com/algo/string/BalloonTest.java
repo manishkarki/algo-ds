@@ -20,5 +20,8 @@ class BalloonTest {
     @Test
     void testReverseParentheses() {
         assertThat(Balloon.reverseParentheses("lee(ct)ode"), is("leetcode"));
+        assertThat(Balloon.reverseParentheses("(abcd)"), is("dcba"));
+        assertThat(Balloon.reverseParentheses("(ed(et(oc))el)"), is("leetcode"));
+        assertThat(Balloon.reverseParentheses("a(bcdefghijkl(mno)p)q"), is("apmnolkjihgfedcbq"));
     }
 }
