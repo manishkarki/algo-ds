@@ -9,31 +9,31 @@ public class Balloon {
     /**
      * Given a string text, you want to use the characters of text to form as many instances of the word "balloon"
      * as possible.
-     *
+     * <p>
      * You can use each character in text at most once. Return the maximum number of instances that can be formed.
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Example 1:
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Input: text = "nlaebolko"
      * Output: 1
      * Example 2:
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Input: text = "loonbalxballpoon"
      * Output: 2
      * Example 3:
-     *
+     * <p>
      * Input: text = "leetcode"
      * Output: 0
-     *
-     *
+     * <p>
+     * <p>
      * Constraints:
-     *
+     * <p>
      * 1 <= text.length <= 10^4
      * text consists of lower case English letters only.
      */
@@ -54,28 +54,22 @@ public class Balloon {
     }
 
     public static String reverseParentheses(String s) {
-        int n = s.length();
-        Stack<Integer> opened = new Stack<>();
-        int[] pair = new int[n];
-        for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) == '(')
-                opened.push(i);
-            if (s.charAt(i) == ')') {
-                int j = opened.pop();
-                pair[i] = j;
-                pair[j] = i;
-            }
-        }
+        Stack<String> stack = new Stack();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0, d = 1; i < n; i += d) {
-            if (s.charAt(i) == '(' || s.charAt(i) == ')') {
-                i = pair[i];
-                d = -d;
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                stack.push(sb.toString());
+                sb = new StringBuilder();
+            } else if (c == ')') {
+                sb = sb.reverse();
+                sb.insert(0, stack.pop());
             } else {
-                sb.append(s.charAt(i));
+                sb.append(c);
             }
         }
+
         return sb.toString();
+
     }
 
     public static void main(String[] args) {
