@@ -72,8 +72,4 @@ public class Balloon {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(reverseParentheses("lee(ct)ode"));
-        System.out.println(reverseParentheses("(u(love)i)"));
-    }
 }
