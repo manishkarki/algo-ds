@@ -61,8 +61,7 @@ public class BinaryTree {
             // Dequeue all nodes of current level and Enqueue all
             // nodes of next level
             while (nodeCount > 0) {
-                Node t = q.peek();
-                q.remove();
+                Node t = q.poll();
                 if (t.left != null)
                     q.add(t.left);
                 if (t.right != null)
