@@ -130,4 +130,76 @@ public class SynonymousSentences {
         backTrack(ans, "", strs, 0);
         return ans;
     }
+
+
+    private Set<String> result = new HashSet<>();
+    private Map<String, Integer> synonymLookup = new HashMap<>();
+
+    private List<Set<String>> draftSynonymSet = new ArrayList<>();
+
+    public List<String> generateSentencesII(List<List<String>> synonyms, String text) {
+        for (List<String> synonym : synonyms) {
+            boolean added = false;
+            for (Set<String> draftSet : draftSynonymSet) {
+                if (draftSet.contains(synonym.get(0)) || draftSet.contains(synonym.get(1))) {
+                    draftSet.add(synonym.get(0));
+                    draftSet.add(synonym.get(1));
+                    added = true;
+                    break;
+                }
+            }
+
+            if (!added) {
+                Set<String> newSynonym = new HashSet<>();
+                newSynonym.add(synonym.get(0));
+                newSynonym.add(synonym.get(1));
+                draftSynonymSet.add(newSynonym);
+            }
+        }
+        // till this point each item in synonyms belong to one of the items in the list ,
+        // so that all synonyms for a word are collected in a single row of the the list
+
+        // a lookup map for a word and it's synonym list's index from draftSynonymSet
+
+        for (int i = 0; i < draftSynonymSet.size(); i++) {
+            for (String synonym : draftSynonymSet.get(i)) {
+                synonymLookup.put(synonym, i);
+            }
+        }
+
+        System.out.println("draft synonym set:" + draftSynonymSet);
+        System.out.println(synonymLookup);
+
+        // now the main implementation
+        String[] textArray = text.split(" ");
+        replaceSynonym(0, textArray.length, textArray);
+
+        List<String> resultList = new ArrayList<>(result);
+        Collections.sort(resultList);
+        return resultList;
+
+    }
+
+    private void replaceSynonym(int startIndex, int numberOfWords, String[] textArray) {
+        if (startIndex >= numberOfWords) {
+            result.add(String.join(" ", textArray));
+            return;
+        }
+
+        for (int i = startIndex; i < numberOfWords; i++) {
+            if (synonymLookup.containsKey(textArray[i])) {
+                //it is a word for replacement
+                int synonymSetIndex = synonymLookup.get(textArray[i]);
+                for (String draftSynonym : draftSynonymSet.get(synonymSetIndex)) {
+                    textArray[i] = draftSynonym;
+                    System.out.println("i:" + i + " text" + Arrays.asList(textArray));
+                    replaceSynonym(i + 1, numberOfWords, textArray);
+                }
+            }
+            //end of string arr is reached
+            if (i == numberOfWords - 1) {
+                result.add(String.join(" ", textArray));
+            }
+        }
+    }
 }
