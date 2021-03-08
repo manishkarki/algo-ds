@@ -135,12 +135,12 @@ public class SynonymousSentences {
     private Set<String> result = new HashSet<>();
     private Map<String, Integer> synonymLookup = new HashMap<>();
 
-    private List<Set<String>> draftSynonymSet = new ArrayList<>();
+    private List<Set<String>> draftSynonyms = new ArrayList<>();
 
     public List<String> generateSentencesII(List<List<String>> synonyms, String text) {
         for (List<String> synonym : synonyms) {
             boolean added = false;
-            for (Set<String> draftSet : draftSynonymSet) {
+            for (Set<String> draftSet : draftSynonyms) {
                 if (draftSet.contains(synonym.get(0)) || draftSet.contains(synonym.get(1))) {
                     draftSet.add(synonym.get(0));
                     draftSet.add(synonym.get(1));
@@ -153,7 +153,7 @@ public class SynonymousSentences {
                 Set<String> newSynonym = new HashSet<>();
                 newSynonym.add(synonym.get(0));
                 newSynonym.add(synonym.get(1));
-                draftSynonymSet.add(newSynonym);
+                draftSynonyms.add(newSynonym);
             }
         }
         // till this point each item in synonyms belong to one of the items in the list ,
@@ -161,8 +161,8 @@ public class SynonymousSentences {
 
         // a lookup map for a word and it's synonym list's index from draftSynonymSet
 
-        for (int i = 0; i < draftSynonymSet.size(); i++) {
-            for (String synonym : draftSynonymSet.get(i)) {
+        for (int i = 0; i < draftSynonyms.size(); i++) {
+            for (String synonym : draftSynonyms.get(i)) {
                 synonymLookup.put(synonym, i);
             }
         }
@@ -187,7 +187,7 @@ public class SynonymousSentences {
             if (synonymLookup.containsKey(textArray[i])) {
                 //it is a word for replacement
                 int synonymSetIndex = synonymLookup.get(textArray[i]);
-                for (String draftSynonym : draftSynonymSet.get(synonymSetIndex)) {
+                for (String draftSynonym : draftSynonyms.get(synonymSetIndex)) {
                     textArray[i] = draftSynonym;
                     replaceSynonym(i + 1, numberOfWords, textArray);
                 }
