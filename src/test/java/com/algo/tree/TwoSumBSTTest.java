@@ -29,5 +29,14 @@ class TwoSumBSTTest {
         TreeNode root1 = new TreeNode(1, left1, right1);
 
         assertThat(twoSumBST.twoSumBSTs(root, root1, 5), is(true));
+        left = new TreeNode(-10);
+        right = new TreeNode(10);
+        TreeNode left2 = new TreeNode(0);
+        TreeNode right2 = new TreeNode(2);
+        left1 = new TreeNode(1, left2, right2);
+        right1 = new TreeNode(7);
+        root = new TreeNode(0, left, right);
+        root1 = new TreeNode(5, left1, right1);
+        assertThat(twoSumBST.twoSumBSTs(root, root1, 18), is(false));
     }
 }
