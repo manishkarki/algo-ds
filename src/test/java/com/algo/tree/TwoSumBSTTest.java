@@ -19,7 +19,7 @@ class TwoSumBSTTest {
     }
 
     @Test
-    void twoSumBSTs() {
+    void testTwoSumBSTs() {
         TreeNode left = new TreeNode(1);
         TreeNode right = new TreeNode(4);
         TreeNode root = new TreeNode(2, left, right);
