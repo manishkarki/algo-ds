@@ -18,7 +18,7 @@ class RankTransformTest {
     }
 
     @Test
-    void arrayRankTransform() {
+    void testArrayRankTransform() {
         int[] arr = {40, 10, 20, 30};
 
         assertThat(rankTransform.arrayRankTransform(arr), is(new int[]{4, 1, 2, 3}));
