@@ -27,8 +27,10 @@ class SynonymousSentencesTest {
 
         List<String> expectedSentences = new ArrayList<>();
         buildExpectedSentences(expectedSentences);
+        Long startTime = System.currentTimeMillis();
         assertThat(synonymousSentences.generateSentences(synonyms, "I am happy today but was sad yesterday"),
                 is(expectedSentences));
+        System.out.println("run time taken by version I:" + (System.currentTimeMillis() - startTime));
     }
 
     @Test
@@ -38,8 +40,10 @@ class SynonymousSentencesTest {
 
         List<String> expectedSentences = new ArrayList<>();
         buildExpectedSentences(expectedSentences);
+        Long startTime = System.currentTimeMillis();
         assertThat(synonymousSentences.generateSentencesII(synonyms, "I am happy today but was sad yesterday"),
                 is(expectedSentences));
+        System.out.println("run time taken by version II:" + (System.currentTimeMillis() - startTime));
     }
 
     private void buildSynonyms(List<List<String>> synonyms) {
