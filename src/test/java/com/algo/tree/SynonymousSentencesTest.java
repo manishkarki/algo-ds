@@ -23,6 +23,26 @@ class SynonymousSentencesTest {
     @Test
     void testGenerateSentences() {
         List<List<String>> synonyms = new ArrayList<>();
+        buildSynonyms(synonyms);
+
+        List<String> expectedSentences = new ArrayList<>();
+        buildExpectedSentences(expectedSentences);
+        assertThat(synonymousSentences.generateSentences(synonyms, "I am happy today but was sad yesterday"),
+                is(expectedSentences));
+    }
+
+    @Test
+    void testGenerateSentencesII() {
+        List<List<String>> synonyms = new ArrayList<>();
+        buildSynonyms(synonyms);
+
+        List<String> expectedSentences = new ArrayList<>();
+        buildExpectedSentences(expectedSentences);
+        assertThat(synonymousSentences.generateSentencesII(synonyms, "I am happy today but was sad yesterday"),
+                is(expectedSentences));
+    }
+
+    private void buildSynonyms(List<List<String>> synonyms) {
         List<String> synonym1 = new ArrayList<>() {{
             add("happy");
             add("joy");
@@ -39,15 +59,14 @@ class SynonymousSentencesTest {
         synonyms.add(synonym1);
         synonyms.add(synonym2);
         synonyms.add(synonym3);
+    }
 
-        List<String> expectedSentences = new ArrayList<>();
+    private void buildExpectedSentences(List<String> expectedSentences) {
         expectedSentences.add("I am cheerful today but was sad yesterday");
         expectedSentences.add("I am cheerful today but was sorrow yesterday");
         expectedSentences.add("I am happy today but was sad yesterday");
         expectedSentences.add("I am happy today but was sorrow yesterday");
         expectedSentences.add("I am joy today but was sad yesterday");
         expectedSentences.add("I am joy today but was sorrow yesterday");
-        assertThat(synonymousSentences.generateSentences(synonyms, "I am happy today but was sad yesterday"),
-                is(expectedSentences));
     }
 }
