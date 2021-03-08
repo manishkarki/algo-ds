@@ -34,4 +34,26 @@ package com.algo.tree;
  * @author mkarki
  */
 public class CountGoodNodes {
+    int goodNodes = 0;
+
+    public int goodNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        countGoodNodes(root, root.val);
+        return goodNodes;
+    }
+
+    private void countGoodNodes(TreeNode node, int currMax) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.val >= currMax) {
+            currMax = node.val;
+            goodNodes++;
+        }
+        countGoodNodes(node.left, currMax);
+        countGoodNodes(node.right, currMax);
+    }
 }
