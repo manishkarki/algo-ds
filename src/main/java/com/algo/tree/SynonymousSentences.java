@@ -167,9 +167,6 @@ public class SynonymousSentences {
             }
         }
 
-        System.out.println("draft synonym set:" + draftSynonymSet);
-        System.out.println(synonymLookup);
-
         // now the main implementation
         String[] textArray = text.split(" ");
         replaceSynonym(0, textArray.length, textArray);
@@ -192,7 +189,6 @@ public class SynonymousSentences {
                 int synonymSetIndex = synonymLookup.get(textArray[i]);
                 for (String draftSynonym : draftSynonymSet.get(synonymSetIndex)) {
                     textArray[i] = draftSynonym;
-                    System.out.println("i:" + i + " text" + Arrays.asList(textArray));
                     replaceSynonym(i + 1, numberOfWords, textArray);
                 }
             }
