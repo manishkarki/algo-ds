@@ -1,4 +1,4 @@
-package com.algo.list;
+package com.algo.tree;
 
 /**
  * Given the root of a binary search tree, rearrange the tree in in-order so that the leftmost node in the tree
@@ -20,26 +20,6 @@ package com.algo.list;
  * @author mkarki
  */
 public class IncreasingBST {
-
-    // Definition for a binary tree node.
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     private TreeNode curr;
 

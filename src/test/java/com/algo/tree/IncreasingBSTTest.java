@@ -1,4 +1,4 @@
-package com.algo.list;
+package com.algo.tree;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +14,14 @@ class IncreasingBSTTest {
     @Test
     void testIncreasingBST() {
         IncreasingBST increasingBST = new IncreasingBST();
-        IncreasingBST.TreeNode three = increasingBST.new TreeNode(3);
-        IncreasingBST.TreeNode two = increasingBST.new TreeNode(2);
-        IncreasingBST.TreeNode one = increasingBST.new TreeNode(1);
-        IncreasingBST.TreeNode four = increasingBST.new TreeNode(4);
-        IncreasingBST.TreeNode six = increasingBST.new TreeNode(6);
-        IncreasingBST.TreeNode eight = increasingBST.new TreeNode(8);
-        IncreasingBST.TreeNode seven = increasingBST.new TreeNode(7);
-        IncreasingBST.TreeNode nine = increasingBST.new TreeNode(9);
+        TreeNode three = new TreeNode(3);
+        TreeNode two = new TreeNode(2);
+        TreeNode one = new TreeNode(1);
+        TreeNode four = new TreeNode(4);
+        TreeNode six = new TreeNode(6);
+        TreeNode eight = new TreeNode(8);
+        TreeNode seven = new TreeNode(7);
+        TreeNode nine = new TreeNode(9);
 
         /*
                                           5
@@ -36,8 +36,8 @@ class IncreasingBSTTest {
         eight.left = seven;
         eight.right = nine;
         six.right = eight;
-        IncreasingBST.TreeNode root = increasingBST.new TreeNode(5, three, six);
-        IncreasingBST.TreeNode retNode = increasingBST.increasingBST(root);
+        TreeNode root = new TreeNode(5, three, six);
+        TreeNode retNode = increasingBST.increasingBST(root);
         assertThat(retNode, is(one));
         assertThat(retNode.left, is(nullValue()));
         assertThat(retNode.right, is(two));
