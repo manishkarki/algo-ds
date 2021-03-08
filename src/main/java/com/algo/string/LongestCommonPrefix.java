@@ -101,18 +101,17 @@ public class LongestCommonPrefix {
         return walkTrie();
     }
 
-
-    // Driver program to test above function
-    public static void main(String args[]) {
-        String arr[] = {"geeksforgeeks", "geeks",
-                "geek", "geezer"};
-        int n = arr.length;
-
-        String ans = commonPrefix(arr, n);
-
-        if (ans.length() != 0)
-            System.out.println("The longest common prefix is " + ans);
-        else
-            System.out.println("There is no common prefix");
+    public String longestCommonPrefix(String[] strings) {
+        String referenceString = strings[0];
+        for (int i = 0; i < referenceString.length(); i++) {
+            char c = referenceString.charAt(i);
+            for (int j = 1; j < strings.length; j++) {
+                if (i == strings[j].length() || c != strings[j].charAt(i)) {
+                    return referenceString.substring(0, i);
+                }
+            }
+        }
+        return referenceString;
     }
+
 }
