@@ -101,14 +101,12 @@ public class LongestCommonPrefix {
         return walkTrie();
     }
 
+
     // Driver program to test above function
     public static void main(String args[]) {
         String arr[] = {"geeksforgeeks", "geeks",
                 "geek", "geezer"};
         int n = arr.length;
-        String res = "";
-         res += (char)('a'+ 5);
-        System.out.println("check:"+res);
 
         String ans = commonPrefix(arr, n);
 
