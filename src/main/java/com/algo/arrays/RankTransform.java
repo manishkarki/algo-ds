@@ -1,5 +1,9 @@
 package com.algo.arrays;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given an array of integers arr, replace each element with its rank.
  * <p>
@@ -28,4 +32,24 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class RankTransform {
+
+    public int[] arrayRankTransform(int[] arr) {
+        int[] arrCloned = arr.clone();
+        Arrays.sort(arrCloned);
+        Map<Integer, Integer> indexes = new HashMap<>();
+        int rank = 1;
+        for (int i = 0; i < arrCloned.length; i++) {
+            if (!indexes.containsKey(arrCloned[i])) {
+                indexes.put(arrCloned[i], rank++);
+            }
+
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            int el = arr[i];
+            arr[i] = indexes.get(el);
+        }
+
+        return arr;
+    }
 }
