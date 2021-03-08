@@ -49,7 +49,7 @@ public class CountGoodNodes {
             return;
         }
 
-        if (node.val >= currMax) {
+        if (node.val != null && currMax <= node.val) {
             currMax = node.val;
             goodNodes++;
         }
