@@ -35,4 +35,21 @@ package com.algo.tree;
  */
 public class RootToLeafSum {
 
+    public int sumRootToLeaf(BinaryTreeDFS.TreeNode root) {
+        BinaryTreeDFS.TreeNode curr = root;
+        return calculateSum(curr, 0);
+    }
+
+    private int calculateSum(BinaryTreeDFS.TreeNode curr, int sum) {
+        if (curr == null) {
+            return 0;
+        }
+        sum = sum * 2 + sum;
+        if (curr.left == null && curr.right == null) {
+            return sum;
+        }
+
+        return calculateSum(curr.left, sum) + calculateSum(curr.right, sum);
+    }
+
 }
