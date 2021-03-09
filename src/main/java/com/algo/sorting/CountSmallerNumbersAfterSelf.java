@@ -31,15 +31,6 @@ import java.util.stream.Collectors;
  * @author mkarki
  */
 public class CountSmallerNumbersAfterSelf {
-    static class Number {
-        int index;
-        int val;
-
-        public Number(int i, int v) {
-            index = i;
-            val = v;
-        }
-    }
 
     private static List<Number> mergeSort(List<Number> nums, int[] smaller) {
         if (nums.size() <= 1) {
