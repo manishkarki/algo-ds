@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
  */
 public class CountSmallerNumbersAfterSelf {
 
-    private static List<Number> mergeSort(List<Number> nums, int[] smaller) {
+    private List<Number> mergeSort(List<Number> nums, int[] smaller) {
         if (nums.size() <= 1) {
             return nums;
         }
@@ -42,7 +42,7 @@ public class CountSmallerNumbersAfterSelf {
         return merge(left, right, smaller);
     }
 
-    private static List<Number> merge(List<Number> left, List<Number> right, int[] smaller) {
+    private List<Number> merge(List<Number> left, List<Number> right, int[] smaller) {
         List<Number> result = new ArrayList<>();
         int l = 0;
         int r = 0;
