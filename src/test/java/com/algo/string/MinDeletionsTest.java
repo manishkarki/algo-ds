@@ -20,5 +20,7 @@ class MinDeletionsTest {
     @Test
     void minDeletions() {
         assertThat(minDeletions.minDeletions("aab"), is(0));
+        assertThat(minDeletions.minDeletions("aaabbbcc"), is(2));
+        assertThat(minDeletions.minDeletions("ceabaacb"), is(2));
     }
 }
