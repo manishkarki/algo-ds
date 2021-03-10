@@ -15,5 +15,7 @@ class MaximumTimeTest {
     void testMaximumTime() {
         maximumTime = new MaximumTime();
         assertThat(maximumTime.maximumTime("2?:?0"), is("23:50"));
+        assertThat(maximumTime.maximumTime("0?:3?"), is("09:39"));
+        assertThat(maximumTime.maximumTime("2?:??"), is("23:59"));
     }
 }
