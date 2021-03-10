@@ -36,13 +36,13 @@ public class MinDeletions {
     public int minDeletions(String s) {
         int[] counts = new int[26];
 
-        for (int i = 0; i < 26; i++) {
-            counts[i] = s.charAt(i) - 'a';
+        for (char c : s.toCharArray()) {
+            counts[c - 'a']++;
         }
 
         Set<Integer> ref = new HashSet<>();
         int minDeletions = 0;
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < counts.length; i++) {
             while (counts[i] != 0 && ref.contains(counts[i])) {
                 counts[i]--;
                 minDeletions++;
