@@ -27,27 +27,13 @@ package com.algo.arrays;
 public class RectangleSquare {
 
     public int countGoodRectangles(int[][] rectangles) {
-        int[] smaller = new int[rectangles.length];
-
-        int index = 0;
-        for (int[] rectangle : rectangles) {
-            if (rectangle[0] > rectangle[1]) {
-                smaller[index++] = rectangle[1];
-            } else {
-                smaller[index++] = rectangle[0];
-            }
-        }
-
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < smaller.length; i++) {
-            if (max < smaller[i]) {
-                max = smaller[i];
-            }
-        }
-
-        int count = 0;
-        for (int small : smaller) {
-            if (small == max) {
+        int small, count = 0, max = Integer.MIN_VALUE;
+        for (int i = 0; i < rectangles.length; i++) {
+            small = rectangles[i][0] > rectangles[i][1] ? rectangles[i][1] : rectangles[i][0];
+            if (small > max) {
+                max = small;
+                count = 1;
+            } else if (small == max) {
                 count++;
             }
         }
