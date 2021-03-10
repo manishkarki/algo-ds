@@ -25,4 +25,32 @@ package com.algo.arrays;
  * @author mkarki
  */
 public class RectangleSquare {
+
+    public int countGoodRectangles(int[][] rectangles) {
+        int[] smaller = new int[rectangles.length];
+
+        int index = 0;
+        for (int[] rectangle : rectangles) {
+            if (rectangle[0] > rectangle[1]) {
+                smaller[index++] = rectangle[1];
+            } else {
+                smaller[index++] = rectangle[0];
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < smaller.length; i++) {
+            if (max < smaller[i]) {
+                max = smaller[i];
+            }
+        }
+
+        int count = 0;
+        for (int small : smaller) {
+            if (small == max) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
