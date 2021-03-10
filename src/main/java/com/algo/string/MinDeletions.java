@@ -1,5 +1,8 @@
 package com.algo.string;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * A string s is called good if there are no two different characters in s that have the same frequency.
  * <p>
@@ -29,4 +32,23 @@ package com.algo.string;
  * @author mkarki
  */
 public class MinDeletions {
+
+    public int minDeletions(String s) {
+        int[] counts = new int[26];
+
+        for (int i = 0; i < 26; i++) {
+            counts[i] = s.charAt(i) - 'a';
+        }
+
+        Set<Integer> ref = new HashSet<>();
+        int minDeletions = 0;
+        for (int i = 0; i < s.length(); i++) {
+            while (counts[i] != 0 && ref.contains(counts[i])) {
+                counts[i]--;
+                minDeletions++;
+            }
+            ref.add(counts[i]);
+        }
+        return minDeletions;
+    }
 }
