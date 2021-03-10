@@ -26,5 +26,24 @@ package com.algo.string;
  * @author mkarki
  */
 public class MaximumTime {
-    
+    public String maximumTime(String time) {
+        char[] timeChars = time.toCharArray();
+
+        if (timeChars[0] == '?') {
+            timeChars[0] = timeChars[1] <= '3' || timeChars[1] == '?' ? '2' : '1';
+        }
+
+        if (timeChars[1] == '?') {
+            timeChars[1] = timeChars[0] == '2' ? '3' : '9';
+        }
+        if (timeChars[3] == '?') {
+            timeChars[3] = '5';
+        }
+
+        if (timeChars[4] == '?') {
+            timeChars[4] = '9';
+        }
+
+        return new String(timeChars);
+    }
 }
