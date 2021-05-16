@@ -1,5 +1,7 @@
 package com.algo.leetcode.dec1to7;
 
+import java.util.Arrays;
+
 /**
  * Given two positive integers n and k.
  * <p>
@@ -38,5 +40,19 @@ package com.algo.leetcode.dec1to7;
  * @author mkarki
  */
 public class KthFactorOfN {
+
+    public int kthFactor(int n, int k) {
+        // we don't need factors more than k
+        int[] factors = new int[k];
+        Arrays.fill(factors, -1);
+        int index = 0;
+        for (int i = 1; i <= n && index < k; i++) {
+            if (n % i == 0) {
+                factors[index++] = i;
+            }
+        }
+
+        return factors[k - 1];
+    }
 
 }
